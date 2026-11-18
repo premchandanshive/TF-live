@@ -97,16 +97,6 @@ Open the Vite URL shown in the terminal, normally `http://localhost:5173`.
 
 `backend/.env`:
 
-```env
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/task
-JWT_SECRET=replace_with_a_long_random_secret
-CLIENT_URL=http://localhost:5173
-NODE_ENV=development
-```
-
-Never commit `.env` to Git.
-
 ## API endpoints
 
 ### Authentication
