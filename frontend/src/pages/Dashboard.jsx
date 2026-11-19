@@ -17,7 +17,7 @@ function Dashboard() {
   const loadTasks = useCallback(async () => {
     setError("");
     try {
-      const response = await api.get("/tasks");
+      const response = await api.get("https://task-bi5l.onrender.com/api/tasks");
       setTasks(response.data.tasks);
     } catch (requestError) {
       setError(requestError.response?.data?.message || "Could not load tasks.");
