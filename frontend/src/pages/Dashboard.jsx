@@ -46,11 +46,11 @@ function Dashboard() {
   const saveTask = async (values) => {
     try {
       if (editingTask) {
-        const response = await api.put(`/tasks/${editingTask._id}`, values);
+        const response = await api.put(`https://task-bi5l.onrender.com/api/tasks/${editingTask._id}`, values);
         setTasks((current) => current.map((task) => task._id === editingTask._id ? response.data.task : task));
         setEditingTask(null);
       } else {
-        const response = await api.post("/tasks", values);
+        const response = await api.post("https://task-bi5l.onrender.com/api/tasks", values);
         setTasks((current) => [response.data.task, ...current]);
       }
     } catch (requestError) {
@@ -62,7 +62,7 @@ function Dashboard() {
   const toggleTask = async (task) => {
     const status = task.status === "completed" ? "pending" : "completed";
     try {
-      const response = await api.patch(`/tasks/${task._id}/status`, { status });
+      const response = await api.patch(`https://task-bi5l.onrender.com/api/tasks/${task._id}/status`, { status });
       setTasks((current) => current.map((item) => item._id === task._id ? response.data.task : item));
     } catch (requestError) {
       setError(requestError.response?.data?.message || "Could not update task status.");
@@ -74,7 +74,7 @@ function Dashboard() {
     if (!confirmed) return;
 
     try {
-      await api.delete(`/tasks/${task._id}`);
+      await api.delete(`https://task-bi5l.onrender.com/api/tasks/${task._id}`);
       setTasks((current) => current.filter((item) => item._id !== task._id));
       if (editingTask?._id === task._id) setEditingTask(null);
     } catch (requestError) {
