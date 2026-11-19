@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
 
   const refreshUser = async () => {
     try {
-      const response = await api.get("https://task-bi5l.onrender.com/me");
+      const response = await api.get("https://task-bi5l.onrender.com/api/me");
       setUser(response.data.user);
       return response.data.user;
     } catch {
@@ -25,20 +25,20 @@ export function UserProvider({ children }) {
   }, []);
 
   const signup = async (formData) => {
-    const response = await api.post("https://task-bi5l.onrender.com/signup", formData);
+    const response = await api.post("https://task-bi5l.onrender.com/api/signup", formData);
     setUser(response.data.user);
     return response.data;
   };
 
   const login = async (credentials) => {
-    const response = await api.post("https://task-bi5l.onrender.com/login", credentials);
+    const response = await api.post("https://task-bi5l.onrender.com/api/login", credentials);
     setUser(response.data.user);
     return response.data;
   };
 
   const logout = async () => {
     try {
-      await api.post("https://task-bi5l.onrender.com/logout");
+      await api.post("https://task-bi5l.onrender.com/api/logout");
     } finally {
       setUser(null);
     }
