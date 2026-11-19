@@ -8,7 +8,7 @@ function PublicRoute() {
     return <div className="screen-loader">Checking your session...</div>;
   }
 
-  return user ? <Navigate to="https://task-bi5l.onrender.com/api/dashboard" replace /> : <Outlet />;
+  return user ? <Navigate to="/dashboard" replace /> : <Outlet />;
 }
 
 export default PublicRoute;
