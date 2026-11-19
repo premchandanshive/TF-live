@@ -8,7 +8,7 @@ function ProtectedRoute() {
     return <div className="screen-loader">Checking your session...</div>;
   }
 
-  return user ? <Outlet /> : <Navigate to="/login" replace />;
+  return user ? <Outlet /> : <Navigate to="https://task-bi5l.onrender.com/api/login" replace />;
 }
 
 export default ProtectedRoute;
